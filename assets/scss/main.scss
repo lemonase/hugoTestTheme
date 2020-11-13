@@ -1,0 +1,80 @@
+/*
+ * Colors
+ */
+
+// $backgroundColor: {{ .Param "backgroundColor" }};
+// $textColor: {{ .Param "textColor" }};
+
+$imperial-red: #e63946ff;
+$honeydew: #f1faeeff;
+$powder-blue: #a8dadcff;
+$celadon-blue: #457b9dff;
+$prussian-blue: #1d3557ff;
+
+
+$backgroundColor: $honeydew;
+$textColor: $imperial-red;
+
+body {
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+/*
+ * Fonts
+ */
+
+/* Space Mono Font Family */
+/* https://www.typewolf.com/space-mono */
+@font-face {
+  font-family: SpaceMono;
+  src: url('/fonts/spacemono/SpaceMono-Regular.ttf');
+}
+@font-face {
+  font-family: SpaceMono;
+  src: url('/fonts/spacemono/SpaceMono-Bold.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: SpaceMono;
+  src: url('/fonts/spacemono/SpaceMono-BoldItalic.ttf');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: SpaceMono;
+  src: url('/fonts/spacemono/SpaceMono-Italic.ttf');
+  font-style: italic;
+}
+
+/*
+ * Styles
+ */
+
+/* All Elements */
+* {
+  text-align: center;
+  font-family: SpaceMono;
+}
+
+/* Home/Index Elements */
+
+#home-nav {
+  a {
+    margin: 20px;
+    color: $celadon-blue;
+    text-decoration: none;
+  }
+}
+
+#home-content {
+  margin-top: 20%;
+}
+
+#footer {
+  font-size: .8em;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  color: $celadon-blue;
+}
