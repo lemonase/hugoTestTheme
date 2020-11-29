@@ -1,5 +1,13 @@
+{{ define "head" }}
+{{ if .Site.Params.backgroundImage -}}
+	<style>.full-bg {background-image: url('{{ .Site.Params.backgroundImage }}');}</style>
+{{- end -}}
+{{ end }}
+
 {{ define "main" }}
 <div id="home-content">
   <h1 class="home-title">{{ .Site.Title }}</h1>
+  <h2 class="home-subtitle">{{ .Site.Params.subTitle }}</h2>
+  <h3 class="home-subsubtitle">{{ .Site.Params.subSubTitle }}</h3>
 </div>
 {{ end }}

@@ -11,13 +11,12 @@ $powder-blue: #a8dadcff;
 $celadon-blue: #457b9dff;
 $prussian-blue: #1d3557ff;
 
-
 $backgroundColor: $honeydew;
 $textColor: $imperial-red;
 
 body {
-    background-color: $backgroundColor;
-    color: $textColor;
+  background-color: $backgroundColor;
+  color: $textColor;
 }
 
 /*
@@ -28,22 +27,22 @@ body {
 /* https://www.typewolf.com/space-mono */
 @font-face {
   font-family: SpaceMono;
-  src: url('/fonts/spacemono/SpaceMono-Regular.ttf');
+  src: url("/fonts/spacemono/SpaceMono-Regular.ttf");
 }
 @font-face {
   font-family: SpaceMono;
-  src: url('/fonts/spacemono/SpaceMono-Bold.ttf');
+  src: url("/fonts/spacemono/SpaceMono-Bold.ttf");
   font-weight: bold;
 }
 @font-face {
   font-family: SpaceMono;
-  src: url('/fonts/spacemono/SpaceMono-BoldItalic.ttf');
+  src: url("/fonts/spacemono/SpaceMono-BoldItalic.ttf");
   font-weight: bold;
   font-style: italic;
 }
 @font-face {
   font-family: SpaceMono;
-  src: url('/fonts/spacemono/SpaceMono-Italic.ttf');
+  src: url("/fonts/spacemono/SpaceMono-Italic.ttf");
   font-style: italic;
 }
 
@@ -59,6 +58,15 @@ body {
 
 /* Home/Index Elements */
 
+.home-title {
+}
+
+.home-subtitle {
+}
+
+.home-subsubtitle {
+}
+
 #home-nav {
   a {
     margin: 20px;
@@ -72,9 +80,23 @@ body {
 }
 
 #footer {
-  font-size: .8em;
+  font-size: 0.8em;
   position: absolute;
   right: 20px;
   bottom: 10px;
   color: $celadon-blue;
+}
+
+.full-bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  // opacity: .03;
+  // position: fixed;
+  // top: 0;
+  // transition: opacity .5s;
 }
