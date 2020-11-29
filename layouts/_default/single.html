@@ -1,5 +1,22 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-{{ partial "post/metadata.html" }} <br><br>
-{{ .Content }}
+<div class="content">
+  <div class="post-title">
+    <h1>{{ .Title }}</h1>
+  </div>
+
+  <div class="post-content">
+  {{ .Content | replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" `${1}<a href="#${2}" class="anchor" aria-hidden="true"></a>${3}` | safeHTML }}
+  </div>
+
+  <div class="post-metadata">
+    {{- with .Params.tags }}
+    <p>Tags: </p>
+    <p>
+      {{- range . -}}
+      <span class="post-tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{.}}</a></span>
+      {{- end }}
+    </p>
+    {{- end }}
+  </div>
+</div>
 {{ end }}
