@@ -1,8 +1,14 @@
 <div class="footer">
-  <p>
+
+  <div class="footer-copyright">
     Copyright (c) {{ now.Format "2006" }} {{ .Site.Author.name }}
     <a href="{{ .Site.Params.copyrightLink }}" target="_blank" re="noopener"
       >{{ .Site.Params.copyrightText }}</a
     >
-  </p>
+  </div>
+
+  <div class="footer-hugo">
+    Made with <a href="https://gohugo.io/">Hugo</a>
+  </div>
+
 </div>
