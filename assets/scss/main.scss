@@ -1,28 +1,4 @@
 /*
- * Colors
- */
-
-// $backgroundColor: {{ .Param "backgroundColor" }};
-// $textColor: {{ .Param "textColor" }};
-
-// Colorschemes
-$imperial-red: #e63946ff;
-$honeydew: #f1faeeff;
-$powder-blue: #a8dadcff;
-$celadon-blue: #457b9dff;
-$prussian-blue: #1d3557ff;
-
-/* Global Element Colors */
-
-// Backgrounds
-$backgroundColor: $honeydew;
-
-// Text
-$globalTextColor: $imperial-red;
-$navTextColor: $celadon-blue;
-$footerColor: $celadon-blue;
-
-/*
  * Fonts
  */
 
@@ -50,6 +26,34 @@ $footerColor: $celadon-blue;
 }
 
 /*
+ * Colors
+ */
+
+// $backgroundColor: {{ .Param "backgroundColor" }};
+// $textColor: {{ .Param "textColor" }};
+
+/* SCSS Variables */
+
+// Colorschemes
+$imperial-red: #e63946ff;
+$honeydew: #f1faeeff;
+$powder-blue: #a8dadcff;
+$celadon-blue: #457b9dff;
+$prussian-blue: #1d3557ff;
+$carribean-green: #06d6a0;
+
+// Backgrounds
+$backgroundColor: $honeydew;
+
+// Text
+$globalTextColor: $imperial-red;
+$navTextColor: $celadon-blue;
+$footerColor: $celadon-blue;
+
+// Fonts
+$globalFont: "SpaceMono";
+
+/*
  * Styles
  */
 
@@ -60,9 +64,16 @@ body {
   height: 100%;
   margin: 0;
   text-align: center;
-  font-family: SpaceMono;
+  font-family: $globalFont;
   background-color: $backgroundColor;
   color: $globalTextColor;
+}
+
+::selection {
+  background: $carribean-green;
+}
+::-moz-selection {
+  background: $carribean-green;
 }
 
 a {
@@ -73,18 +84,9 @@ a {
   }
 }
 
-/* Home/Index Elements */
+/* Home/Index Page */
 
-.home-title {
-}
-
-.home-subtitle {
-}
-
-.home-subsubtitle {
-}
-
-#home-nav {
+.nav {
   margin-top: 10px;
   a {
     margin: 20px;
@@ -92,15 +94,20 @@ a {
   }
 }
 
-#home-content {
+.home-content {
   margin-top: 20%;
   min-height: 65%;
+  .home-title {
+  }
+
+  .home-subtitle {
+  }
+
+  .home-subsubtitle {
+  }
 }
 
-.content {
-}
-
-#footer {
+.footer {
   position: absolute;
   right: 10px;
   font-size: 0.8em;
@@ -147,18 +154,21 @@ a {
 
 /* Individual Posts */
 
-.post-title {
-  margin-left: 10%;
-}
-
 .post-content {
   text-align: left;
   margin-left: 10%;
-}
 
-.post-metadata {
-  padding: 5px;
-  .post-tag {
-    padding-left: 15px;
+  .post-title {
+    text-align: center;
+  }
+
+  .post-metadata {
+    padding: 5px;
+    .post-tag {
+      padding-left: 15px;
+    }
+  }
+
+  .post-inner-content {
   }
 }

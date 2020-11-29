@@ -2,26 +2,22 @@
 
 <h1>{{ .Title }}</h1>
 
-<div class="content">
-
-  <div class="post-list-content">
-    {{- range .Data.Pages.GroupByDate "2006" }}
-    <div class="posts-group">
-      <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
-      <ul class="posts-list">
-        {{- range .Pages }}
-        <li class="post-list-item">
-          <a href="{{ .RelPermalink }}">
-            <span class="post-list-title">{{.Title}}</span>
-            <span class="post-list-day">{{ .Date.Format "Jan 2" }}</span>
-          </a>
-        </li>
-        {{- end }}
-      </ul>
-    </div>
-    {{- end }}
+<div class="post-list-content">
+  {{- range .Data.Pages.GroupByDate "2006" }}
+  <div class="posts-group">
+    <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
+    <ul class="posts-list">
+      {{- range .Pages }}
+      <li class="post-list-item">
+        <a href="{{ .RelPermalink }}">
+          <span class="post-list-title">{{.Title}}</span>
+          <span class="post-list-day">{{ .Date.Format "Jan 2" }}</span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
   </div>
-
+  {{- end }}
 </div>
 
 {{ end }}
