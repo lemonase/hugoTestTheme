@@ -1,11 +1,27 @@
 {{ define "main" }}
+
 <h1>{{ .Title }}</h1>
-{{ range .Pages.ByPublishDate.Reverse }}
-<p>
-  <h3><a href="{{ .RelPermalink }}" >{{ .Title }}</a></h3>
-  {{ partial "post/metadata.html" }}
-  <a class="summary" href="{{ .RelPermalink }}"> <p>{{ .Summary }}</p> </a>
-</p>
-<br><hr>
-{{ end }}
+
+<div class="content">
+
+  <div class="post-list-content">
+    {{- range .Data.Pages.GroupByDate "2006" }}
+    <div class="posts-group">
+      <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
+      <ul class="posts-list">
+        {{- range .Pages }}
+        <li class="post-list-item">
+          <a href="{{ .RelPermalink }}">
+            <span class="post-list-title">{{.Title}}</span>
+            <span class="post-list-day">{{ .Date.Format "Jan 2" }}</span>
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+
+</div>
+
 {{ end }}
