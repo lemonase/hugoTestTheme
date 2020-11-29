@@ -4,11 +4,17 @@
     <h1>{{ .Title }}</h1>
   </div>
 
+  <div class="post-metadata">
+    <li>Date: {{ dateFormat "2006-01-02" .Date.Local }}</li>
+    <li>Word Count: {{ .Content | countwords }}</li>
+    <li>Reading Time: {{ .ReadingTime }} minutes</li>
+  </div>
+
   <div class="post-inner-content">
   {{ .Content | replaceRE "(<h[1-6] id=\"([^\"]+)\".+)(</h[1-6]+>)" `${1}<a href="#${2}" class="anchor" aria-hidden="true"></a>${3}` | safeHTML }}
   </div>
 
-  <div class="post-metadata">
+  <div class="post-tags">
     {{- with .Params.tags }}
     <p>Tags: </p>
     <p>

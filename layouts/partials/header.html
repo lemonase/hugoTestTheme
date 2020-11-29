@@ -1,6 +1,18 @@
 <div class="nav">
-  <a href="/">Home</a>
+  {{ $navChar := "+" }}
+  {{ $numRepeat := 5 }}
+
+  <a href="/">
+  {{ strings.Repeat $numRepeat $navChar }}
+  [ Home ]
+  {{ strings.Repeat $numRepeat $navChar }}
+  </a>
+
   {{ range .Site.Menus.main }}
-  <a href="{{ .URL | absLangURL }}">{{ .Name | safeHTML }}</a>
+  <a href="{{ .URL | absLangURL }}">
+  {{ strings.Repeat $numRepeat $navChar }}
+  [ {{ .Name | safeHTML }} ]
+  {{ strings.Repeat $numRepeat $navChar }}
+  </a>
   {{ end }}
 </div>
