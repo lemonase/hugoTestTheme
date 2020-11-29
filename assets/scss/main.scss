@@ -5,19 +5,22 @@
 // $backgroundColor: {{ .Param "backgroundColor" }};
 // $textColor: {{ .Param "textColor" }};
 
+// Colorschemes
 $imperial-red: #e63946ff;
 $honeydew: #f1faeeff;
 $powder-blue: #a8dadcff;
 $celadon-blue: #457b9dff;
 $prussian-blue: #1d3557ff;
 
-$backgroundColor: $honeydew;
-$textColor: $imperial-red;
+/* Global Element Colors */
 
-body {
-  background-color: $backgroundColor;
-  color: $textColor;
-}
+// Backgrounds
+$backgroundColor: $honeydew;
+
+// Text
+$globalTextColor: $imperial-red;
+$navTextColor: $celadon-blue;
+$footerColor: $celadon-blue;
 
 /*
  * Fonts
@@ -50,10 +53,24 @@ body {
  * Styles
  */
 
-/* All Elements */
-* {
+/* Global */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
   text-align: center;
   font-family: SpaceMono;
+  background-color: $backgroundColor;
+  color: $globalTextColor;
+}
+
+a {
+  color: $navTextColor;
+  text-decoration: none;
+  &:hover {
+    color: $globalTextColor;
+  }
 }
 
 /* Home/Index Elements */
@@ -68,23 +85,26 @@ body {
 }
 
 #home-nav {
+  margin-top: 10px;
   a {
     margin: 20px;
-    color: $celadon-blue;
     text-decoration: none;
   }
 }
 
 #home-content {
   margin-top: 20%;
+  min-height: 65%;
+}
+
+.content {
 }
 
 #footer {
-  font-size: 0.8em;
   position: absolute;
-  right: 20px;
-  bottom: 10px;
-  color: $celadon-blue;
+  right: 10px;
+  font-size: 0.8em;
+  color: $footerColor;
 }
 
 .full-bg {
@@ -99,4 +119,46 @@ body {
   // position: fixed;
   // top: 0;
   // transition: opacity .5s;
+}
+
+/* Posts List */
+
+.post-list-content {
+  .post-list-item {
+    list-style: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5px;
+  }
+
+  .post-list-title {
+    text-align: left;
+  }
+
+  .post-list-day {
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+/* Individual Posts */
+
+.post-title {
+  margin-left: 10%;
+}
+
+.post-content {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.post-metadata {
+  padding: 5px;
+  .post-tag {
+    padding-left: 15px;
+  }
 }
